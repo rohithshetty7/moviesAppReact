@@ -3,7 +3,6 @@ import moment from "moment";
 
 const RecommendationList = ({ recommendations }) => {
   // Check if there are no movie recommendations available
-  console.log('recommendations:', recommendations?.data?.success)
   if (!recommendations?.data?.success) {
     return <span>No movie recommendations available.</span>;
   }
@@ -12,7 +11,7 @@ const RecommendationList = ({ recommendations }) => {
     <ul>
       {recommendations?.data?.data?.map((movie, index) => (
         <li key={index}>
-          {movie.name}, showing at{" "}
+          {movie.name}, showing at
           {movie.showings.map((time, idx) => (
             <span key={idx}>{formatTime(time) + " "}</span>
           ))}
